@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'stock',
+    'ptt',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,7 +113,6 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 
-DEBUG = False
 
 try:
     from .local_settings import *
