@@ -113,7 +113,7 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 
-
+DEBUG = False
 try:
     from .local_settings import *
 except ImportError:
