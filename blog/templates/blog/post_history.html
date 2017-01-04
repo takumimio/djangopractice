@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<table>
+{% for post in posts%}
+<tr>
+	<td style="width:600px;padding-bottom:1em;"><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{post.title}}</a></td>
+	<td style="padding-bottom:1em;padding-left:5em;">{{ post.published_date|date:"Y.m.d" }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

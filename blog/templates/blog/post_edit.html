@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <form method="POST" class="post-form">{% csrf_token %}
+        <p>標題：{{ form.title }}</p>
+        <p>內文：{{ form.text }}</p>
+        <p>類型：{{ form.post_type }}</p>
+        <button type="submit" class="save btn btn-default" align="center">上傳</button>
+    </form>
+{% endblock %}

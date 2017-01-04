@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	</head>
+	<body style="width:75%; margin-left: auto; margin-right: auto;">
+        <!-- <form method="POST">{% csrf_token %}
+            <label for="username">用戶名稱:</label>
+            <input type="text" name="username" value="" id="username"> <br />
+            <label for="password">用戶密碼:</label>
+            <input type="password" name="password" value="" id="password"> <br />
+            <input class="btn btn-default" type="submit" value="登入">
+        </form> -->
+        <form id="ajax_form" align="center" method="POST">{% csrf_token %}
+        	<div id="login_information">          
+            	<label for="username">用戶名稱:</label>
+            	<input type="text" name="username" value="" id="ajax_username" autofocus> 
+            	<br>
+            	<br>
+            	<br>
+            </div>
+            <a class="btn btn-default" id="login">
+            	<span>登入</span>
+        	</a>
+        </form>
+        
+        <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			$( document ).ready(function() {
+				$("#ajax_username").keypress(function(e) {
+				    if(e.which == 13) {
+				        var username = $("#ajax_username").val();
+				        $.get("/ajaxlogin/",{'username':username}, function(ret){
+				       
+				        	if (ret == 0) {
+				        		alert("無此使用者");
+				        	}
+				        	else {
+				        		$("#login_information").append('<label for="password">用戶密碼:&nbsp;</label><input type="password" name="password" value="" id="ajax_password">'); //add input box
+				        		$("#ajax_password").focus();
+				        	}
+				        })
+				        return false;
+				    }
+				});
+
+				$("#login").click(function() {
+				    
+						$("#ajax_form").submit();			        
+				});
+			});
+		</script>
+	</body>
+</html>
