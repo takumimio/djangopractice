@@ -1,0 +1,2 @@
+# djangopractice
+Practice Django framework
