@@ -13,7 +13,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'mysite.views.home', name='home'),
+    url(r'^$', 'mysite.views.show_index_page'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls')),

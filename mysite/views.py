@@ -31,3 +31,5 @@ def ajax_login(request):
     user_exists = '1'
     return HttpResponse(str(user_exists))
 
+def show_index_page(request):
+    return render(request, 'index.html')
