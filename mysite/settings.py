@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'mysite/templates')),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,6 +104,10 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
@@ -118,7 +122,3 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
