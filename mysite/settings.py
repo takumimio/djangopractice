@@ -122,3 +122,5 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+ADMINS = [('Hal', 'takumimio1@gmail.com'), ('Hal', 'takumimio@hotmail.com')]
