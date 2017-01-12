@@ -17,10 +17,12 @@
         </a>
         {% endif %}
     </div>
-    <div>
     <h1>{{ post.title }}</h1>
+    <div style="font-size: 16px">
     <br>
-    <p style="font-size: 18px">{{ post.text|linebreaksbr }}</p>
+    <!-- {% autoescape off %} -->
+    {{ post.text|linebreaksbr }}
+    <!-- {% endautoescape %} -->
     </div>
     <div>
         <h3> {{comments_count}} 則留言</h3>
