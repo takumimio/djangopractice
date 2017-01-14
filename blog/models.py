@@ -29,5 +29,18 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User)
 
+    def __str__(self):
+        return self.text
+
     def leave(self, user): 
+        self.save()
+
+
+class Subject(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __str__(self):
+        return self.name
+
+    def create(self, user): 
         self.save()
